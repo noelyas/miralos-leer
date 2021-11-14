@@ -1,0 +1,47 @@
+/* NavBar */
+
+nav div.container-fluid {
+  margin: 0;
+  padding: 0; 
+}
+
+nav ul {
+  width: 100%;
+  margin: 0 auto; 
+}
+
+nav ul li {
+  text-align: center;
+  width: 25%;
+  padding: .5rem 0; 
+}
+
+nav ul li a {
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 4px black; 
+}
+
+nav ul li:hover {
+  background-color: rgba(255, 255, 255, 0.2); 
+}
+
+.navbar {
+  margin: 0;
+  padding: 0; 
+}
+
+.navbar .container-fluid {
+  flex-direction: row-reverse; 
+}
+
+@media screen and (max-width: 992px) {
+ 
+  nav ul {
+    width: 100%; 
+  }
+
+  nav ul li {
+    width: 100%; 
+  } 
+
+}

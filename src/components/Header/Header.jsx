@@ -1,6 +1,7 @@
 import React from 'react'
-import CartWidget from './CartWidget'
-import NavBar from './NavBar'
+import CartWidget from '../CartWidget/CartWidget'
+import NavBar from '../NavBar/NavBar'
+import './Header.css';
 
 const Header = () => {
     return (

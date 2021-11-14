@@ -1,0 +1,17 @@
+/* CartWidget */
+
+.cartWidget {
+
+    position: absolute;
+    top:5%;
+    right:1%;
+  
+  }
+  
+  .cartWidget span {
+  
+    color:white;
+    font-size:2.2em;
+    cursor:pointer;
+  
+  }
