@@ -1,34 +1,21 @@
-import { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import ItemListContainer from './container/ItemListContainer/ItemListContainer'
-import { getFetch } from './helpers/getFetch';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ItemDetailContainer from './container/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
 
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-
-    getFetch
-    .then( data => {
-
-      console.log('Mock API')
-      setProducts(data);
-
-    })
-    .catch( err => console.log(err) )
-
-    return () => {
-      console.log('clean')
-    }
-
-  }, [])
-
   return (
     <>
-      <Header />
-      <ItemListContainer products={ products } />
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<ItemListContainer />} /> 
+          <Route exact path="/category/:idCategory" element={<ItemListContainer />} /> 
+          <Route exact path="/detail/:idItem" element={<ItemDetailContainer />} /> 
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

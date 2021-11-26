@@ -1,16 +1,9 @@
-
-const productos = [
-    { id: '1', title: 'La mano izquierda de la oscuridad', author: 'Ursula K. Le Guin', price: '1200', pictureURL: 'https://images-na.ssl-images-amazon.com/images/I/81aW1kMiuLL.jpg', description: 'Esta controvertida novela trata del género y la sexualidad a través de los ojos de un terrestre llegado al planeta Invierno, colonia en la que los habitantes han mutado a hermafroditas capaces de cambiar de sexo.' },
-    { id: '2', title: 'El cuento de la criada', author: 'Margaret Atwood', price: '1100', pictureURL: 'https://images-na.ssl-images-amazon.com/images/I/91saQNrpPoL.jpg', description: 'Tras realizar un golpe militar asesinando al presidente y atribuyendo dichos ataques al terrorismo islámico, unos políticos teócratas llegan al poder de Estados Unidos, que pasa a denominarse República de Gilead (proveniente de Galaad, para referirse a la organización política de la obra). Con la excusa de la defensa contra la violencia, aumentan el autoritarismo, disminuyendo las libertades y derechos sociales. Suprimen la libertad de prensa y los derechos de las mujeres, quienes se dividen en castas.' },
-    { id: '3', title: 'Los peligros de fumar en la cama', author: 'Mariana Enríquez', price: '950', pictureURL: 'https://www.anagrama-ed.es/uploads/media/portadas/0001/17/f0449bf3d9b22b03b516db3b4393a478bdf1bd81.jpeg', description: 'En los doce soberbios cuentos que componen este volumen Mariana Enriquez despliega todo un repertorio de recursos del relato clásico de terror: apariciones espectrales, brujas, sesiones de espiritismo, grutas, visiones, muertos que vuelven a la vida... Pero, lejos de proponer una mera revisitación arqueológica del género, reelabora ese material con una voz propia y radicalmente moderna.' },
-    { id: '4', title: 'Sacrificios humanos', author: 'María Fernanda Ampuero', price: '800', pictureURL: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/542/287/products/16129706959788483932896_04_h1-f8396b7c2408b714f716155508453929-640-0.jpg', description: 'Un libro que, como su nombre lo indica, llega para adentrarnos en un mundo habitado por una bestia que aterroriza y muerde a los débiles, a los marginales, a los sacrificables para poder mantener a salvo, una estructura de desigualdad y odio que solo condena a la muerte.' },
-    { id: '5', title: 'Distancia de rescate', author: 'Samanta Schweblin', price: '850', pictureURL: 'https://www.tematika.com/media/catalog/Ilhsa/Imagenes/582291.jpg', description: 'Esta novela, logra combinar el registro psicológico con la denuncia social y el relato fantástico, todo inmerso en un ambiente extraño, siniestro. La maestría de Samanta Schweblin se desarrolla justamente en esta línea, logrando crear una atmósfera desesperante (casi, podríamos decir, irrespirable) con un número limitado de elementos cotidianos y en apariencia banales. Lo monstruoso, lo trágico y lo irremediable está en lo trivial, en lo común de todos los días.' }
-]
+import { Products } from "./Products";
 
 export const getFetch = new Promise((resolve, reject) => {
 
     setTimeout(() => {
-        resolve(productos);
+        resolve(Products);
     }, 2000)
 
 })
