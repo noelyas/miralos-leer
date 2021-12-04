@@ -7,7 +7,7 @@ import './Header.css';
 const Header = () => {
     return (
         <header className="contenedores">
-            <Link to='/detalle'>
+            <Link to='/cart'>
                 <CartWidget />
             </Link>
             <Link to='/'>
