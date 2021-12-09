@@ -1,5 +1,11 @@
 .cartWrapper {
 
     padding: 5%;
+  
+}
+
+.cursor-pointer {
+    
+    cursor:pointer;
 
 }

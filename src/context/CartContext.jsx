@@ -13,17 +13,31 @@ function CartContextProvider( { children } ) {
         setCartList([...cartList, item])
 
     }
+
+    const removeProduct = (itemId,quantity) => {
+        
+        const index = cartList.findIndex(x => x.item.id === itemId);
+        if(quantity>1){
+            cartList[index].quantity = quantity-1;
+        } else {
+            cartList.splice(index,1)
+        }
+        setCartList([...cartList])
+
+    }
     
     const addQuantity = (id,quantity) => {
         
         cartList.forEach( (element) => {
             if( id === element.item.id) {
+
                 const oldQuantity = element.quantity;
                 const newQuantity = oldQuantity + quantity;
 
                 element.quantity = newQuantity
             }
         })
+        setCartList([...cartList])
 
     }
 
@@ -37,6 +51,7 @@ function CartContextProvider( { children } ) {
             cartList,
             addNewProduct,
             addQuantity,
+            removeProduct,
             emptyCart
         }}>
             { children }

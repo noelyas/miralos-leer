@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { Products } from "../../helpers/Products"
 import { useParams } from 'react-router-dom'
 import ItemDetail from '../../components/ItemDetail/ItemDetail'
+import getFirestore from '../../Firebase/firebase'
 
 
 const ItemDetailContainer = () => {
@@ -14,17 +14,11 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
 
-        const getItem = new Promise((resolve, reject) => {
-
-            setTimeout(() => {
-                resolve(Products.find(producto => producto.id === idItem));
-            }, 2000)
-        
-        })
-
-        getItem.then( (data) => {
-            console.log('Mock API')
-            setItem(data);
+        const db = getFirestore()
+        const dbQuery = db.collection('products').doc(idItem)
+        dbQuery.get()
+        .then( resp => {
+            setItem( { id: resp.id, ...resp.data() } );
         })
         .catch( err => console.log(err) )
         .finally(()=>{

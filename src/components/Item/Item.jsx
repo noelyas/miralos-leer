@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom'
 import './Item.css';
 
 const Item = ( { product } ) => {
+
     return (
 
         <div className="card mb-3 col-6">
-            <div className="row g-0">
+            <div className="row g-0 align-items-center">
                 <div className="col-md-2">
                     <img src={ product.pictureURL } className="img-fluid rounded-start card-image" alt="..." />
                 </div>

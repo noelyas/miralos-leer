@@ -2,46 +2,51 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemList from '../../components/ItemList/ItemList'
-import { getFetch } from '../../helpers/getFetch'
+import getFirestore from '../../Firebase/firebase'
+
+
 
 const ItemListContainer = () => {
 
     const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true)
 
     const { idCategory } = useParams()
 
     useEffect(() => {
 
-        if (idCategory) {
-
-            getFetch
-            .then( data => {
-                console.log('Mock API')
-                setProducts(data.filter( prod => prod.category === idCategory));
-            })
-            .catch( err => console.log(err) )
-            return () => {
-                console.log('clean')
-            }
-            
+        const db = getFirestore()
+        let dbQuery
+        if(idCategory) {
+            dbQuery = db.collection('products').where('category', "==", idCategory)
         } else {
-            
-            getFetch
-            .then( data => {
-                console.log('Mock API')
-                setProducts(data);
-            })
-            .catch( err => console.log(err) )
-            return () => {
-             console.log('clean')
+            dbQuery = db.collection('products')
+        }
+        dbQuery.get()
+        .then (
+            data => {
+                setProducts( data.docs.map( item => ( { id: item.id, ...item.data() } ) ) )
             }
+        )
+        .finally(()=>{
+            setLoading(false)
+        })
+        .catch( err => console.log(err) )
+        return () => {
+            console.log('clean')
         }
 
     }, [idCategory])
 
     return (
         <main>
-            <ItemList products={ products } />
+            {
+                loading 
+                ? 
+                <h4>Cargando...</h4> 
+                : 
+                <ItemList products={ products } /> 
+            }
         </main>
     )
 }
