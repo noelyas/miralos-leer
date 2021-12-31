@@ -21,7 +21,7 @@ const NavBar = () => {
                     <NavLink to='/category/nonfiction' className="nav-link" activeclassname="active">No Ficción</NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink to='/' className="nav-link" activeclassname="active">Contacto</NavLink>
+                    <NavLink to='/contactus' className="nav-link" activeclassname="active">Contacto</NavLink>
                   </li>
                 </ul>
               </div>

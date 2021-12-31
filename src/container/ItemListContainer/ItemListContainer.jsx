@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemList from '../../components/ItemList/ItemList'
+import Loading from '../../components/Loading/Loading'
 import getFirestore from '../../Firebase/firebase'
 
 
@@ -32,9 +33,6 @@ const ItemListContainer = () => {
             setLoading(false)
         })
         .catch( err => console.log(err) )
-        return () => {
-            console.log('clean')
-        }
 
     }, [idCategory])
 
@@ -43,9 +41,10 @@ const ItemListContainer = () => {
             {
                 loading 
                 ? 
-                <h4>Cargando...</h4> 
-                : 
-                <ItemList products={ products } /> 
+                <Loading />
+                :
+                <ItemList products={ products } category={idCategory} /> 
+
             }
         </main>
     )

@@ -1,13 +1,23 @@
 .contenedores, main {
   margin: 0 auto;
-  background-color: #FFF;
   width: 100%; 
 }
 
 main {
-
   display:flex;
   align-items: center;
-  padding: 5%;
+  padding: 3%;
+}
 
+h2 {
+  color:#46769D;
+}
+
+legend {
+  color: #F17105;
+}
+
+label {
+  color:#480355;
+  padding-left: .25rem;
 }

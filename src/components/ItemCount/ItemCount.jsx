@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCartContext } from "../../context/CartContext"
+import Swal from 'sweetalert2'
 
 
 const FinishCart = () => {
@@ -32,9 +33,20 @@ const ItemCount = ( {product} ) => {
 
         } else {
 
-            addQuantity( product.id, quantity )
-        }
+            const checkStock = result.item.stock - result.quantity - quantity
 
+            if(checkStock >= 0){
+                addQuantity( product.id, quantity )
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'No hay stock suficiente.'
+                })
+                setInputType('add')
+            }
+
+        }
 
     }
 
@@ -51,7 +63,13 @@ const ItemCount = ( {product} ) => {
         if (Count < product.stock) {
             setCount(Count + 1)
         } else {
-            alert('No hay más stock disponible.');
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No hay más stock disponible.'
+            })
+
         }
     }
 

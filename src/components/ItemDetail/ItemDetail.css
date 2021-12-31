@@ -1,5 +1,13 @@
 .card-image {
 
     width:100%;
+    display:block;
+    margin:5% auto;
+
+}
+
+.text-justify {
+
+    text-align: justify;
 
 }

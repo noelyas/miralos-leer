@@ -1,70 +1,21 @@
-# Getting Started with Create React App
+# Míralos Leer
+## E-commerce de venta de libros especializado en autoras mujeres
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Descipción del sitio
 
-## Available Scripts
+Al ingresar a la página principal, se visualiza el listado completo de libros. Desde el menú de navegación se puede filtrar por categorías: ficción y no ficción. 
+Al seleccionar un libro, se visualiza una breve sinopsis, además de los datos que se veían en el listado, y la posibilidad de seleccionar la cantidad de unidades y agregar al carrito de compras.
 
-In the project directory, you can run:
+Desde el carrito se visualiza un resumen con el título, autora y precio de cada libro agregado. Además se visualiza la cantidad de cada uno, y el precio total de la orden. 
+Desde el carrito pueden sumarse o restarse unidades, o eliminar todas las unidades de un libro en particular.
 
-### `npm start`
+Al finalizar la compra, se deben ingresar los datos personales (nombre, apellido, teléfono, e-mail). Una vez creada la orden, se guardarán los datos en Firebase y se mostrará en pantalla el id de la orden generado automáticamente.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Todos los datos de los productos también provienen de Firebase.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Dependencias y librerías utilizadas:
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Bootstrap v5.0.1 (para desarrollar un e-commerce responsivo de manera simple)
+- Material Icons de Google Fonts (para evitar el uso de imágenes a la hora de utilizar íconos)
+- Firebase (La tienda se nutre de datos provenientes de una base Firestore, donde también se almacenan las órdenes realizadas)
+- SweetAlert2 v11.3.0 (Para incluir alertas amigables con el usuario y con un diseño uniforme en todos los navegadores)

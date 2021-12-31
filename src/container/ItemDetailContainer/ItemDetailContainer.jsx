@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from '../../components/ItemDetail/ItemDetail'
+import Loading from '../../components/Loading/Loading'
 import getFirestore from '../../Firebase/firebase'
 
 
@@ -24,9 +25,6 @@ const ItemDetailContainer = () => {
         .finally(()=>{
             setLoading(false)
         })
-        return () => {
-            console.log('clean')
-        }
 
     }, [idItem])
 
@@ -35,7 +33,7 @@ const ItemDetailContainer = () => {
             {
                 loading 
                 ? 
-                <h4>Cargando...</h4> 
+                <Loading />
                 : 
                 <ItemDetail item={ item } /> 
             }

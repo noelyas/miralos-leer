@@ -1,0 +1,45 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.loader-container {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1s ease-in-out;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #000;
+    margin: 0 10px;
+    animation: loader infinite 0.3s alternate;
+}
+
+.d1 {
+    background-color:#480355;
+}
+
+.d2 {
+    background-color:#46769D;
+    animation-delay: 0.05s;
+}
+
+.d3 {
+    background-color:#F17105;
+    animation-delay: 0.1s;
+}
+
+@keyframes loader {
+    100% {
+      transform: translateY(-30px);
+    }
+}

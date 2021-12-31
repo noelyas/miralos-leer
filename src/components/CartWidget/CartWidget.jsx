@@ -7,11 +7,8 @@ const CartWidget = () => {
     const { cartList } = useCartContext()
 
     let cant = 0;
-
     cartList.forEach(
-
         cart => cant += cart.quantity
-
     )
 
     return (

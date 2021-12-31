@@ -1,23 +1,37 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import CheckoutContainer from '../../container/CheckoutContainer/CheckoutContainer';
 import { useCartContext } from '../../context/CartContext'
 import CartList from '../CartList/CartList'
+import NotFound from '../NotFound/NotFound';
 import './Cart.css';
 
 
 const Cart = () => {
 
-    const { cartList } = useCartContext()
+    const { cartList, goToCheckOut, checkOut } = useCartContext()
+    
 
     return (
         <section className="cartWrapper">
-            { cartList.length === 0 
+            { cartList.length === 0 && !checkOut 
                 ?   <>
-                        <h4 className="mb-4">Carrito vacío</h4>
+                        <NotFound message={'No hay productos en el carrito'} />
                         <Link to="/"><button className="btn btn-primary">Ir a la tienda</button></Link>
                     </>
-                :
-                    <CartList />
+                : 
+                    !checkOut
+
+                    ?
+                        <>
+                            <CartList />
+                            <button className="btn btn-primary" onClick={goToCheckOut}>Finalizar compra</button>
+                        </>
+
+                    :
+                    
+                        <CheckoutContainer />
+
             }
         </section>
     )

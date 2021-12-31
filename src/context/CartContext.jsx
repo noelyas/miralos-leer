@@ -8,11 +8,14 @@ function CartContextProvider( { children } ) {
 
     const [cartList, setCartList] = useState([])
 
-    const addNewProduct = (item) => {
-        
+    const addNewProduct = (item) => {     
         setCartList([...cartList, item])
-
     }
+
+    let total = 0;
+    cartList.forEach(
+        cart => total += cart.item.price * cart.quantity
+    )
 
     const removeProduct = (itemId,quantity) => {
         
@@ -25,24 +28,47 @@ function CartContextProvider( { children } ) {
         setCartList([...cartList])
 
     }
+
+    const removeProducts = (itemId) => {
+        
+        const index = cartList.findIndex(x => x.item.id === itemId);
+        cartList.splice(index,1)
+        setCartList([...cartList])
+
+    }
     
     const addQuantity = (id,quantity) => {
         
+        let checkStock = 0
+
         cartList.forEach( (element) => {
             if( id === element.item.id) {
-
-                const oldQuantity = element.quantity;
-                const newQuantity = oldQuantity + quantity;
-
-                element.quantity = newQuantity
+                checkStock = element.item.stock - element.quantity - quantity
+                if(checkStock>=0) {
+                    const oldQuantity = element.quantity;
+                    const newQuantity = oldQuantity + quantity;
+                    element.quantity = newQuantity
+                }
             }
         })
-        setCartList([...cartList])
+        if(checkStock>=0) {
+            setCartList([...cartList])
+        }
 
     }
 
     const emptyCart = () => {
         setCartList([])
+    }
+
+    const [checkOut, setCheckOut] = useState(false)
+
+    const goToCheckOut = () =>{
+        setCheckOut(true)
+    }
+
+    const resetCheckOut = () =>{
+        setCheckOut(false)
     }
 
     return(
@@ -52,7 +78,12 @@ function CartContextProvider( { children } ) {
             addNewProduct,
             addQuantity,
             removeProduct,
-            emptyCart
+            removeProducts,
+            emptyCart,
+            goToCheckOut,
+            resetCheckOut,
+            checkOut,
+            total
         }}>
             { children }
         </CartContext.Provider>
